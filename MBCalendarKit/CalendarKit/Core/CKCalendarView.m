@@ -63,9 +63,9 @@
     
     
     //  Accessory Table
-    _table = [UITableView new];
-    [_table setDelegate:self];
-    [_table setDataSource:self];
+    //_table = [UITableView new];
+    //[_table setDelegate:self];
+    //[_table setDataSource:self];
     
     [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"noDataCell"];
@@ -113,6 +113,7 @@
 - (instancetype) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+
         [self commonInitializer];
     }
     return self;
@@ -147,10 +148,10 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    [[self layer] setShadowColor:[[UIColor darkGrayColor] CGColor]];
-    [[self layer] setShadowOffset:CGSizeMake(0, 3)];
-    [[self layer] setShadowOpacity:1.0];
-    
+//    [[self layer] setShadowColor:[[UIColor darkGrayColor] CGColor]];
+//    [[self layer] setShadowOffset:CGSizeMake(0, 1)];
+//    [[self layer] setShadowOpacity:0.3];
+
     [self reloadAnimated:NO];
     
     [super willMoveToSuperview:newSuperview];
@@ -244,7 +245,7 @@
 - (CGSize)_cellSize
 {
     // These values must be hard coded in order for rectForDisplayMode: to work correctly
-    return CGSizeMake(46, 44);
+    return CGSizeMake(46, 48);
 }
 
 #pragma mark - Layout
@@ -274,7 +275,7 @@
     CKCalendarHeaderView *header = [self headerView];
     
     CGFloat width = [self _cellSize].width * (CGFloat)[[self calendar] daysPerWeekUsingReferenceDate:[self date]];
-    CGRect headerFrame = CGRectMake(0, 0, width, 44);
+    CGRect headerFrame = CGRectMake(0, 0, width, 60);
     [header setFrame:headerFrame];
     [header setDelegate:self];
     [header setDataSource:self];
