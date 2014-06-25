@@ -361,7 +361,7 @@
             /* STEP 1: create and position the cell */
             
             CKCalendarCell *cell = [self _dequeueCell];
-            
+
             CGRect frame = CGRectMake(column*width, yOffset + headerOffset + (row*height), width, height);
             [cell setFrame:frame];
             
@@ -385,7 +385,7 @@
              
              If the cell can't be selected, hide the number entirely.
              */
-            
+            [self setCustomColorForThisMonthCell:cell forDate:workingDate];
             if (cellRepresentsToday && isThisMonth && isInRange) {
                 [cell setState:CKCalendarMonthCellStateTodayDeselected];
             }
@@ -464,7 +464,14 @@
         [self setIsAnimating:NO];        
     }
     
-    
+}
+
+/* Override the following methods in custom CalendarView class */
+
+#pragma mark - OddLook Customization
+
+- (void)setCustomColorForThisMonthCell:(CKCalendarCell *)cell forDate:(NSDate *)date {
+
 }
 
 #pragma mark - Cell Animation
@@ -607,7 +614,6 @@
 
 - (void)setDate:(NSDate *)date animated:(BOOL)animated
 {
-    
     if (!date) {
         date = [NSDate date];
     }

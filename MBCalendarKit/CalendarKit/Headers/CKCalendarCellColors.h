@@ -38,7 +38,7 @@
 #define kCalendarColorDarkTextGradient [@"#2b3540" toColor]
 #define kCalendarColorLightTextGradient [@"#495a6d" toColor]
 
-#define kCalendarColorCellBorder [@"#9da0a9" toColor]
-#define kCalendarColorSelectedCellBorder [@"#293649" toColor]
+#define kCalendarColorCellBorder [UIColor whiteColor]
+#define kCalendarColorSelectedCellBorder [UIColor clearColor]
 
 #endif

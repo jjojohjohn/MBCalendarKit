@@ -69,6 +69,8 @@
     self = [self init];
     if (self) {
         _size = size;
+        [[self layer] setCornerRadius:5.0f];
+        // [[self layer] setMasksToBounds:YES];
     }
     return self;
 }
@@ -139,12 +141,15 @@
 - (void)configureLabel
 {
     UILabel *label = [self label];
-    
-    [label setFont:[UIFont boldSystemFontOfSize:13]];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    
+
+    // Added to customize vertical align and matching font
+    UIFont *ODDLookFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:8.0];
+    [label setFont:ODDLookFont];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setFrame:CGRectMake(0, 0, [self frame].size.width, [self frame].size.height)];
+    [label setNumberOfLines:0];
+    [label sizeToFit];
+
+    [label setFrame:CGRectMake(2, -18, [self frame].size.width, [self frame].size.height)];
 }
 
 #pragma mark - Dot
@@ -176,12 +181,12 @@
 - (void)applyColorsForState:(CKCalendarMonthCellState)state
 {
     //  Default colors and shadows
-    [[self label] setTextColor:[self textColor]];
-    [[self label] setShadowColor:[self textShadowColor]];
-    [[self label] setShadowOffset:CGSizeMake(0, 0.5)];
-    
+//    [[self label] setTextColor:[self textColor]];
+//    [[self label] setShadowColor:[self textShadowColor]];
+//    [[self label] setShadowOffset:CGSizeMake(0, 0.5)];
+
     [self setBorderColor:[self cellBorderColor]];
-    [self setBorderWidth:0.5];
+    [self setBorderWidth:0.2];
     [self setBackgroundColor:[self normalBackgroundColor]];
     
     //  Today cell

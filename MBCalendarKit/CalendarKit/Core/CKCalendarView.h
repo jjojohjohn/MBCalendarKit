@@ -15,6 +15,8 @@
 #import "CKCalendarDelegate.h"
 #import "CKCalendarDataSource.h"
 
+@class CKCalendarCell;
+
 @interface CKCalendarView : UIView
 
 @property (nonatomic, assign) CKCalendarDisplayMode displayMode;
@@ -68,5 +70,9 @@
 
 - (NSDate *)firstVisibleDate;
 - (NSDate *)lastVisibleDate;
+
+/* OddLook Customizers */
+
+- (void)setCustomColorForThisMonthCell:(CKCalendarCell *)cell forDate:(NSDate *)date;
 
 @end

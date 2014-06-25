@@ -40,12 +40,10 @@
     if (self) {
         
         _monthTitle = [UILabel new];
-        [_monthTitle setTextColor:kCalendarColorHeaderMonth];
-        [_monthTitle setShadowColor:kCalendarColorHeaderMonthShadow];
-        [_monthTitle setShadowOffset:CGSizeMake(0, 1)];
+        UIFont *ODDLookFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:22.0];
+        [_monthTitle setFont:ODDLookFont];
         [_monthTitle setBackgroundColor:[UIColor clearColor]];
         [_monthTitle setTextAlignment:NSTextAlignmentCenter];
-        [_monthTitle setFont:[UIFont boldSystemFontOfSize:22]];
         
         _columnTitles = [NSMutableArray new];
         _columnLabels = [NSMutableArray new];
@@ -188,7 +186,8 @@
     [l setTextColor:kCalendarColorHeaderWeekdayTitle];
     [l setShadowColor:kCalendarColorHeaderWeekdayShadow];
     [l setTextAlignment:NSTextAlignmentCenter];
-    [l setFont:[UIFont boldSystemFontOfSize:10]];
+    UIFont *ODDLookFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
+    [l setFont:ODDLookFont];
     [l setShadowOffset:CGSizeMake(0, 1)];
     [l setText:title];
     
